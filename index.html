@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#176b59">
+<title>النشاط الطلابي | مدرسة مكة المكرمة الابتدائية</title>
+<style>
+:root{--primary:#176b59;--primary2:#0f5144;--mint:#e9f4f0;--gold:#c69a3a;--ink:#20312d;--muted:#6b7b76;--line:#dfe8e4;--bg:#f5f8f7;--white:#fff;--red:#b94141;--blue:#326d9a;--shadow:0 8px 28px rgba(20,68,56,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",Arial,sans-serif;line-height:1.7}button,input,select,textarea{font:inherit}button{cursor:pointer}.topline{height:5px;background:linear-gradient(90deg,var(--gold),var(--primary),var(--primary2))}
+.wrap{max-width:1240px;margin:auto;padding:22px}.hero{background:linear-gradient(120deg,#0f5144,#176b59 65%,#2d8873);color:#fff;border-radius:20px;padding:26px 30px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero:after{content:"";position:absolute;width:240px;height:240px;border:1px solid #ffffff24;border-radius:50%;left:-60px;top:-100px;box-shadow:0 0 0 25px #ffffff0c,0 0 0 50px #ffffff08}.hero-content{position:relative;z-index:1}.eyebrow{font-size:13px;letter-spacing:.3px;color:#dcefe9}.hero h1{font-size:clamp(23px,4vw,36px);margin:5px 0 4px;line-height:1.4}.hero p{margin:0;color:#e2f0eb}.hero-bottom{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pill{border:1px solid #ffffff40;border-radius:999px;padding:5px 12px;font-size:12px;background:#ffffff12}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:18px 0}.stat,.panel,.card{background:var(--white);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}.stat{padding:15px 17px}.stat .label{color:var(--muted);font-size:13px}.stat strong{display:block;font-size:25px;color:var(--primary);margin-top:2px}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);padding:8px;border-radius:14px;margin:18px 0}.tab{border:0;background:transparent;color:#50615b;border-radius:10px;padding:10px 15px;font-weight:700}.tab.active{background:var(--primary);color:#fff}.tab:hover:not(.active){background:var(--mint)}
+.panel{padding:20px;margin:15px 0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.section-head h2{font-size:21px;margin:0}.section-head p{margin:2px 0 0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card{padding:17px;box-shadow:none;display:flex;flex-direction:column;gap:9px}.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}.category{font-size:12px;color:var(--primary);background:var(--mint);padding:4px 9px;border-radius:999px;white-space:nowrap}.card h3{margin:0;font-size:17px;line-height:1.55}.muted{color:var(--muted);font-size:13px}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#f8faf9;border-radius:10px;padding:10px;font-size:12px}.meta b{display:block;color:#40544c;margin-bottom:2px}.status{font-size:12px;font-weight:bold;border-radius:999px;padding:4px 9px;white-space:nowrap}.status.open{color:#176b59;background:#e3f4ed}.status.soon{color:#8b6516;background:#fff3d8}.status.closed{color:#a33d3d;background:#fbe9e9}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}.btn{border:1px solid var(--line);border-radius:9px;padding:8px 12px;background:#fff;color:var(--ink);font-weight:700;font-size:13px}.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}.btn.gold{background:#fff7e5;border-color:#ecd7a7;color:#765515}.btn.danger{color:var(--red);border-color:#f0d0d0}.btn.small{padding:5px 9px;font-size:12px}
+.controls{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:15px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:13px;font-weight:700;color:#43554e}.field input,.field select,.field textarea{width:100%;border:1px solid #d5e1dc;background:#fff;border-radius:9px;padding:10px 11px;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px #176b5915}.field textarea{min-height:90px;resize:vertical}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.full{grid-column:1/-1}.empty{border:1px dashed #b9cec5;border-radius:12px;text-align:center;padding:30px;color:var(--muted);background:#fbfdfc}.hidden{display:none!important}.notice{background:#f2f7f5;border-right:4px solid var(--gold);border-radius:8px;padding:12px 14px;color:#53645d;font-size:13px;margin:12px 0}
+.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:650px;background:#fff}th,td{text-align:right;padding:11px 12px;border-bottom:1px solid var(--line);font-size:13px}th{background:#eff6f3;color:#37574c}tr:last-child td{border-bottom:0}
+.footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0}.toast{position:fixed;bottom:20px;left:20px;background:#153f35;color:white;padding:11px 16px;border-radius:10px;box-shadow:var(--shadow);z-index:20;display:none}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.wrap{padding:12px}.hero{padding:22px 18px}.grid{grid-template-columns:1fr}.controls,.formgrid{grid-template-columns:1fr}.stats{gap:8px}.stat{padding:12px}.stat strong{font-size:22px}.tab{flex:1;min-width:28%;padding:9px 6px;font-size:13px}.panel{padding:14px}}
+@media print{body{background:#fff}.topline,.tabs,.no-print,.hero-bottom,.actions,.toast{display:none!important}.wrap{max-width:none;padding:0}.hero{background:#fff!important;color:#111;border:1px solid #ccc;box-shadow:none;padding:12px}.hero p,.eyebrow{color:#444}.panel,.stat,.card{box-shadow:none;break-inside:avoid}.panel{border:0;padding:8px}.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(4,1fr)}.print-title{display:block!important}}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+<div class="wrap">
+<header class="hero">
+ <div class="hero-content">
+  <div class="eyebrow">بوابة تنظيم ومتابعة النشاط الطلابي</div>
+  <h1>النشاط الطلابي</h1>
+  <p>مدرسة مكة المكرمة الابتدائية</p>
+  <div class="hero-bottom"><span class="pill">العام الدراسي 1448هـ</span><span class="pill">خطط • برامج • مسابقات • تقارير</span><span class="pill">رائد النشاط: عواد محمد العوفي</span></div>
+ </div>
+</header>
+<section class="stats">
+ <div class="stat"><span class="label">المسابقات في الدليل</span><strong id="statCompetitions">19</strong></div>
+ <div class="stat"><span class="label">المسابقات المضافة للخطة</span><strong id="statPlan">0</strong></div>
+ <div class="stat"><span class="label">البرامج المسجلة</span><strong id="statPrograms">0</strong></div>
+ <div class="stat"><span class="label">التقارير المحفوظة</span><strong id="statReports">0</strong></div>
+</section>
+<nav class="tabs no-print" aria-label="التبويبات">
+ <button class="tab active" data-tab="semester">الخطة الفصلية</button>
+ <button class="tab" data-tab="weekly">الخطة الأسبوعية</button>
+ <button class="tab" data-tab="programs">البرامج</button>
+ <button class="tab" data-tab="competitions">المسابقات</button>
+ <button class="tab" data-tab="reports">التقارير</button>
+</nav>
+
+<main>
+<section id="page-semester" class="page">
+ <div class="panel">
+  <div class="section-head"><div><h2>الخطة الفصلية للنشاط الطلابي</h2><p>مكان مخصص لإضافة الخطة الفصلية واعتمادها لاحقًا.</p></div><button class="btn primary no-print" onclick="showForm('semesterForm')">+ إضافة بند للخطة</button></div>
+  <div class="notice">يمكنك البدء بإضافة البنود يدويًا الآن. تُحفظ البيانات في هذا المتصفح فقط؛ وللمشاركة بين أجهزة متعددة يلزم ربط الموقع بقاعدة بيانات.</div>
+  <div id="semesterForm" class="panel hidden">
+   <form id="semesterEntryForm" class="formgrid">
+    <div class="field"><label>عنوان البند</label><input name="title" required placeholder="مثال: تعزيز الانضباط المدرسي"></div>
+    <div class="field"><label>المجال</label><select name="category"><option>القيم والسلوك</option><option>الثقافة والفنون</option><option>العلوم والتقنية</option><option>الصحة والرياضة</option><option>المواطنة</option><option>أخرى</option></select></div>
+    <div class="field"><label>موعد التنفيذ</label><input name="date" placeholder="الأسبوع أو التاريخ"></div>
+    <div class="field"><label>المسؤول عن التنفيذ</label><input name="owner" placeholder="اسم المنفذ"></div>
+    <div class="field full"><label>ملاحظات / مؤشرات الإنجاز</label><textarea name="notes"></textarea></div>
+    <div class="actions full"><button class="btn primary">حفظ البند</button><button type="button" class="btn" onclick="hideForm('semesterForm')">إلغاء</button></div>
+   </form>
+  </div>
+  <div id="semesterList"></div>
+ </div>
+</section>
+
+<section id="page-weekly" class="page hidden">
+ <div class="panel">
+  <div class="section-head"><div><h2>الخطة الأسبوعية</h2><p>تسجيل الأنشطة حسب الأسبوع ومتابعة التنفيذ.</p></div><button class="btn primary no-print" onclick="showForm('weeklyForm')">+ إضافة نشاط أسبوعي</button></div>
+  <div id="weeklyForm" class="panel hidden">
+   <form id="weeklyEntryForm" class="formgrid">
+    <div class="field"><label>الأسبوع / التاريخ</label><input name="week" required placeholder="الأسبوع الأول"></div>
+    <div class="field"><label>اسم النشاط</label><input name="title" required placeholder="اسم النشاط"></div>
+    <div class="field"><label>المجال</label><input name="category" placeholder="المجال"></div>
+    <div class="field"><label>الفئة المستهدفة</label><input name="target" placeholder="طلاب الصفوف العليا..."></div>
+    <div class="field"><label>المسؤول</label><input name="owner" placeholder="اسم المنفذ"></div>
+    <div class="field"><label>حالة التنفيذ</label><select name="status"><option>مخطط</option><option>قيد التنفيذ</option><option>منفذ</option><option>مؤجل</option></select></div>
+    <div class="field full"><label>ملاحظات</label><textarea name="notes"></textarea></div>
+    <div class="actions full"><button class="btn primary">حفظ النشاط</button><button type="button" class="btn" onclick="hideForm('weeklyForm')">إلغاء</button></div>
+   </form>
+  </div>
+  <div id="weeklyList"></div>
+ </div>
+</section>
+
+<section id="page-programs" class="page hidden">
+ <div class="panel">
+  <div class="section-head"><div><h2>البرامج الطلابية</h2><p>القسم جاهز لإضافة البرامج المدرسية عند تجهيز قائمتها.</p></div><button class="btn primary no-print" onclick="showForm('programForm')">+ إضافة برنامج</button></div>
+  <div class="notice">أضف اسم البرنامج ومجاله وفئته المستهدفة وموعده، ثم تابع حالته. لا توجد برامج افتراضية حتى لا تُعرض بيانات غير معتمدة.</div>
+  <div id="programForm" class="panel hidden">
+   <form id="programEntryForm" class="formgrid">
+    <div class="field"><label>اسم البرنامج</label><input name="title" required></div>
+    <div class="field"><label>المجال</label><select name="category"><option>القيم والسلوك</option><option>الثقافة والفنون</option><option>العلوم والتقنية</option><option>الصحة والرياضة</option><option>المواطنة</option><option>البيئة</option><option>أخرى</option></select></div>
+    <div class="field"><label>تاريخ التنفيذ</label><input name="date" placeholder="التاريخ أو الأسبوع"></div>
+    <div class="field"><label>الفئة المستهدفة</label><input name="target" placeholder="الصفوف / الطلاب"></div>
+    <div class="field"><label>المنفذ</label><input name="owner"></div>
+    <div class="field"><label>الحالة</label><select name="status"><option>مخطط</option><option>قيد التنفيذ</option><option>منفذ</option><option>مؤجل</option></select></div>
+    <div class="field full"><label>وصف البرنامج وملاحظاته</label><textarea name="notes"></textarea></div>
+    <div class="actions full"><button class="btn primary">حفظ البرنامج</button><button type="button" class="btn" onclick="hideForm('programForm')">إلغاء</button></div>
+   </form>
+  </div>
+  <div id="programList"></div>
+ </div>
+</section>
+
+<section id="page-competitions" class="page hidden">
+ <div class="panel">
+  <div class="section-head"><div><h2>دليل المسابقات الطلابية المعتمدة</h2><p>قائمة مرجعية مستندة إلى المسابقات الظاهرة في الموقع المرجعي؛ راجع الجهة المنظمة للتأكد من المواعيد قبل المشاركة.</p></div><div class="actions no-print"><button class="btn" onclick="printCurrent()">طباعة / PDF</button><button class="btn gold" onclick="exportData()">تصدير البيانات</button></div></div>
+  <div class="controls no-print">
+   <div class="field"><label>البحث</label><input id="search" placeholder="ابحث باسم المسابقة أو الجهة المنظمة..."></div>
+   <div class="field"><label>المجال</label><select id="categoryFilter"><option value="">كل المجالات</option></select></div>
+   <div class="field"><label>حالة التسجيل</label><select id="statusFilter"><option value="">كل الحالات</option><option>مفتوح</option><option>قادم</option><option>انتهى التسجيل</option></select></div>
+  </div>
+  <div class="section-head"><p id="competitionCount">عرض المسابقات</p><button class="btn small no-print" onclick="showPlanOnly()">عرض ما أضيف للخطة</button></div>
+  <div id="competitionList" class="grid"></div>
+ </div>
+ <div class="panel">
+  <div class="section-head"><div><h2>المسابقات المضافة إلى الخطة</h2><p>أضف المسابقة إلى خطة المدرسة، ثم اطبع القائمة أو احفظها PDF.</p></div><button class="btn primary no-print" onclick="printPlan()">طباعة الخطة / PDF</button></div>
+  <div id="planList"></div>
+ </div>
+</section>
+
+<section id="page-reports" class="page hidden">
+ <div class="panel">
+  <div class="section-head"><div><h2>التقارير والنماذج</h2><p>إضافة التقارير يدويًا من خلال نموذج منظم ومتوافق مع التوثيق المدرسي.</p></div><button class="btn primary no-print" onclick="showForm('reportForm')">+ إنشاء تقرير</button></div>
+  <div class="notice">النماذج التالية قالب عام قابل للتعديل، وليست نموذجًا رسميًا معتمدًا من الوزارة. يمكن تكييفها حسب النموذج المعتمد لدى المدرسة أو إدارة التعليم.</div>
+  <div id="reportForm" class="panel hidden">
+   <form id="reportEntryForm" class="formgrid">
+    <div class="field"><label>نوع التقرير / النموذج</label><select name="type"><option>تقرير تنفيذ برنامج</option><option>تقرير تنفيذ مسابقة</option><option>تقرير فعالية مدرسية</option><option>تقرير مبادرة طلابية</option><option>تقرير ختامي</option><option>نموذج آخر</option></select></div>
+    <div class="field"><label>عنوان التقرير</label><input name="title" required placeholder="عنوان واضح للتقرير"></div>
+    <div class="field"><label>تاريخ التنفيذ</label><input name="date" type="date"></div>
+    <div class="field"><label>المكان</label><input name="place" placeholder="داخل المدرسة / ..."></div>
+    <div class="field"><label>الفئة المستهدفة</label><input name="target" placeholder="الصفوف أو الفئة"></div>
+    <div class="field"><label>عدد المستفيدين</label><input name="count" type="number" min="0" placeholder="0"></div>
+    <div class="field full"><label>أهداف التنفيذ</label><textarea name="goals" placeholder="اكتب أهداف النشاط..."></textarea></div>
+    <div class="field full"><label>وصف التنفيذ والإجراءات</label><textarea name="execution" required placeholder="خطوات التنفيذ وما تم إنجازه..."></textarea></div>
+    <div class="field full"><label>الأثر والنتائج</label><textarea name="impact" placeholder="النتائج المتحققة ومؤشرات الأثر..."></textarea></div>
+    <div class="field full"><label>التوصيات والشواهد</label><textarea name="recommendations" placeholder="التوصيات، الشواهد، روابط الملفات أو ملاحظات..."></textarea></div>
+    <div class="field"><label>منفذ التقرير</label><input name="owner" value="عواد محمد العوفي"></div>
+    <div class="field"><label>اعتماد مدير المدرسة</label><input name="approver" placeholder="اسم المدير / يترك فارغًا للتوقيع"></div>
+    <div class="actions full"><button class="btn primary">حفظ التقرير</button><button type="button" class="btn" onclick="hideForm('reportForm')">إلغاء</button></div>
+   </form>
+  </div>
+  <div id="reportList"></div>
+ </div>
+</section>
+</main>
+<div class="footer">النشاط الطلابي – مدرسة مكة المكرمة الابتدائية · أداة تنظيم محلية قابلة للطباعة والتصدير</div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+const competitions = [
+{ id:1,name:"مسابقة القرآن الكريم",category:"المواطنة والحياة",status:"انتهى التسجيل",level:"جميع المراحل",grades:"جميع الصفوف",activation:"إدارة تعليم",dates:"1448/04/16هـ – 1448/04/27هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، حضورية، افتراضية"},
+{ id:2,name:"جائزة الأميرة صيتة للتميز في العمل الاجتماعي",category:"المواطنة والحياة",status:"مفتوح",level:"جميع المراحل",grades:"المواطنة المسؤولة: جميع الصفوف؛ صيتاثون: الأول إلى الثالث الثانوي",activation:"إدارة تعليم، وطني",dates:"1448/04/20هـ – 1448/07/11هـ",method:"المواطنة المسؤولة: تسجيل ذاتي؛ صيتاثون: ترشيح عبر رائد النشاط",org:"وزارة التعليم، مؤسسة الأميرة صيتة بنت عبدالعزيز",participation:"فردية، جماعية، حضورية، افتراضية"},
+{ id:3,name:"مسابقة السلامة المرورية (سلامتنا)",category:"المواطنة والحياة",status:"مفتوح",level:"جميع المراحل",grades:"جميع الصفوف",activation:"مدرسي، إدارة تعليم",dates:"1448/04/20هـ – 1448/11/08هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، حضورية، افتراضية"},
+{ id:4,name:"نزاهة (للتثقيف بقيم النزاهة ومكافحة الفساد)",category:"المواطنة والحياة",status:"قادم",level:"جميع المراحل",grades:"جميع الصفوف",activation:"مدرسي، إدارة تعليم",dates:"1448/05/23هـ – 1448/06/29هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، حضورية، افتراضية"},
+{ id:5,name:"برنامج المعرفة الإحصائية",category:"المواطنة والحياة",status:"مفتوح",level:"جميع المراحل",grades:"من الرابع الابتدائي إلى الثالث الثانوي",activation:"إدارة تعليم",dates:"1448/04/30هـ – 1448/05/11هـ",method:"تسجيل ذاتي من الطالب (موقع الهيئة العامة للإحصاء)",org:"وزارة التعليم، الهيئة العامة للإحصاء",participation:"فردية، افتراضية"},
+{ id:6,name:"الوعي المالي والادخار (ريالي)",category:"المواطنة والحياة",status:"قادم",level:"جميع المراحل",grades:"جميع الصفوف",activation:"مدرسي، إدارة تعليم، وطني",dates:"يبدأ في 1448/06/21هـ",method:"تسجيل ذاتي من الطالب (موقع ريالي)",org:"وزارة التعليم، مؤسسة ريالي",participation:"فردية، جماعية، افتراضية"},
+{ id:7,name:"أولمبياد التاريخ الوطني",category:"المواطنة والحياة",status:"مفتوح",level:"الثانوية",grades:"الأول الثانوي، الثاني الثانوي",activation:"إدارة تعليم، وطني",dates:"1448/04/23هـ – 1448/05/25هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، حضورية، افتراضية"},
+{ id:8,name:"ريادة الأعمال (ريادي)",category:"المواطنة والحياة",status:"مفتوح",level:"المتوسطة، الثانوية",grades:"من الأول المتوسط إلى الثالث الثانوي",activation:"إدارة تعليم، وطني",dates:"1448/05/01هـ – 1448/06/02هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، حضورية، افتراضية"},
+{ id:9,name:"مسابقة إنجاز السعودية",category:"المواطنة والحياة",status:"مفتوح",level:"جميع المراحل",grades:"من الرابع الابتدائي إلى الثالث الثانوي",activation:"مدرسي، إدارة تعليم، وطني، دولي حسب المرحلة",dates:"1448/04/20هـ – 1448/06/20هـ",method:"ترشيح من المدرسة / إدارة التعليم",org:"وزارة التعليم، إنجاز السعودية",participation:"فردية، جماعية، حضورية، افتراضية"},
+{ id:10,name:"جائزة المستثمر الذكي الخليجي (الموسم الخامس)",category:"المواطنة والحياة",status:"قادم",level:"جميع المراحل",grades:"جميع الصفوف",activation:"إدارة تعليم، خليجي",dates:"يبدأ في 1448/06/21هـ",method:"تسجيل ذاتي من الطالب (موقع برنامج مُلم)",org:"وزارة التعليم، هيئة السوق المالية (برنامج مُلم)",participation:"فردية، جماعية، افتراضية"},
+{ id:11,name:"مسابقة أقرأ",category:"الثقافة والفنون",status:"مفتوح",level:"جميع المراحل",grades:"جميع الصفوف",activation:"إدارة تعليم، وطني",dates:"1448/04/01هـ – 1448/08/20هـ",method:"تسجيل ذاتي من الطالب (موقع جائزة أقرأ)",org:"وزارة التعليم، مركز الملك عبدالعزيز الثقافي العالمي (إثراء)",participation:"فردية، حضورية، افتراضية"},
+{ id:12,name:"منافسات اللغة العربية",category:"الثقافة والفنون",status:"قادم",level:"المتوسطة، الثانوية",grades:"من الأول المتوسط إلى الثالث الثانوي",activation:"مدرسي، إدارة تعليم، وطني",dates:"1448/06/05هـ – 1448/08/05هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، حضورية، افتراضية"},
+{ id:13,name:"مهرجان المسرح المدرسي",category:"الثقافة والفنون",status:"قادم",level:"جميع المراحل",grades:"جميع الصفوف",activation:"مدرسي، إدارة تعليم، وطني",dates:"1448/06/05هـ – 1448/08/05هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"جماعية، حضورية، افتراضية"},
+{ id:14,name:"مسابقة الفضاء مداك 2",category:"العلوم والتقنية",status:"انتهى التسجيل",level:"جميع المراحل",grades:"الفنون: 6–11 عامًا؛ العلوم: 12–14؛ الهندسة: 15–18",activation:"عربي",dates:"1447/10/24هـ – 1447/12/13هـ",method:"تسجيل ذاتي من الطالب (موقع وكالة الفضاء السعودية)",org:"وزارة التعليم، وكالة الفضاء السعودية",participation:"فردية، حضورية، افتراضية"},
+{ id:15,name:"مسابقة Robo G",category:"العلوم والتقنية",status:"مفتوح",level:"جميع المراحل",grades:"جميع الصفوف",activation:"وطني",dates:"1448/03/01هـ – 1448/07/01هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم، الاتحاد السعودي للروبوتات والرياضات اللاسلكية",participation:"فردية، جماعية، حضورية"},
+{ id:16,name:"دوري المشي للمدارس",category:"الرياضة والصحة",status:"قادم",level:"المتوسطة، الثانوية",grades:"من الأول المتوسط إلى الثالث الثانوي",activation:"مدرسي، إدارة تعليم، وطني",dates:"1448/08/16هـ – 1448/09/25هـ",method:"تسجيل ذاتي من الطالب (تطبيق تحدي المشي – قسم الفعاليات)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، افتراضية"},
+{ id:17,name:"المسابقة الثقافية الرياضية",category:"الرياضة والصحة",status:"قادم",level:"الثانوية",grades:"من الأول الثانوي إلى الثالث الثانوي",activation:"مدرسي، إدارة تعليم، وطني",dates:"1448/10/13هـ – 1448/10/17هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم، الاتحاد السعودي للثقافة الرياضية",participation:"جماعية، حضورية، افتراضية"},
+{ id:18,name:"دوري المدارس للرياضات الإلكترونية",category:"الرياضة والصحة",status:"قادم",level:"جميع المراحل",grades:"من الرابع الابتدائي إلى الثالث الثانوي",activation:"مدرسي، إدارة تعليم، وطني",dates:"1448/10/20هـ – 1448/10/24هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم، الاتحاد السعودي للرياضات الإلكترونية",participation:"فردية، حضورية، افتراضية"},
+{ id:19,name:"منافسة رسل السلام (للتميز الكشفي)",category:"المجال الكشفي",status:"انتهى التسجيل",level:"جميع المراحل",grades:"من الرابع الابتدائي إلى الثالث الثانوي (أشبال، فتيان، متقدم)",activation:"إدارة تعليم، وطني",dates:"1448/04/02هـ – 1448/04/06هـ",method:"ترشيح من المدرسة (من خلال رائد النشاط)",org:"وزارة التعليم (الإدارة العامة للنشاط الطلابي)",participation:"فردية، جماعية، حضورية"}
+];
+const STORE="school_activity_makkah_v1";
+let state={plan:[],semester:[],weekly:[],programs:[],reports:[]};
+try{state={...state,...JSON.parse(localStorage.getItem(STORE)||"{}")}}catch(e){}
+function save(){localStorage.setItem(STORE,JSON.stringify(state));renderAll();toast("تم حفظ التغييرات على هذا الجهاز");}
+function toast(msg){let el=document.getElementById("toast");el.textContent=msg;el.style.display="block";clearTimeout(window._toastTimer);window._toastTimer=setTimeout(()=>el.style.display="none",2400)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function showForm(id){document.getElementById(id).classList.remove("hidden")}
+function hideForm(id){document.getElementById(id).classList.add("hidden")}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".page").forEach(p=>p.classList.toggle("hidden",p.id!=="page-"+b.dataset.tab));}));
+function renderCompetitions(planOnly=false){
+ let q=(document.getElementById("search").value||"").trim().toLowerCase(), cat=document.getElementById("categoryFilter").value, status=document.getElementById("statusFilter").value;
+ let list=competitions.filter(c=>(!planOnly||state.plan.includes(c.id))&&(!q||(c.name+" "+c.org+" "+c.category).toLowerCase().includes(q))&&(!cat||c.category===cat)&&(!status||c.status===status));
+ document.getElementById("competitionCount").textContent=`عرض ${list.length} من ${competitions.length} مسابقة`;
+ document.getElementById("competitionList").innerHTML=list.length?list.map(c=>`<article class="card"><div class="card-top"><span class="category">${esc(c.category)}</span><span class="status ${c.status==="مفتوح"?"open":c.status==="قادم"?"soon":"closed"}">${esc(c.status)}</span></div><h3>${esc(c.name)}</h3><div class="muted">${esc(c.org)}</div><div class="meta"><div><b>المرحلة</b>${esc(c.level)}</div><div><b>مستوى التفعيل</b>${esc(c.activation)}</div><div class="full"><b>فترة التسجيل وفق الدليل</b>${esc(c.dates)}</div><div class="full"><b>الصفوف المستهدفة</b>${esc(c.grades)}</div><div class="full"><b>آلية التقديم</b>${esc(c.method)}</div></div><div class="muted">نوع المشاركة: ${esc(c.participation)}</div><div class="actions no-print"><button class="btn ${state.plan.includes(c.id)?"":"primary"}" onclick="togglePlan(${c.id})">${state.plan.includes(c.id)?"✓ مضافة للخطة — إزالة":"＋ أضف إلى الخطة"}</button></div></article>`).join(""):`<div class="empty full">لا توجد مسابقات مطابقة للبحث والتصفية.</div>`;
+}
+function renderPlan(){let list=competitions.filter(c=>state.plan.includes(c.id));document.getElementById("planList").innerHTML=list.length?`<div class="tablewrap"><table><thead><tr><th>المسابقة</th><th>المجال</th><th>التسجيل</th><th>الفترة</th><th class="no-print">إجراء</th></tr></thead><tbody>${list.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.category)}</td><td>${esc(c.status)}</td><td>${esc(c.dates)}</td><td class="no-print"><button class="btn danger small" onclick="togglePlan(${c.id})">إزالة</button></td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">لم تضف مسابقات إلى خطة المدرسة بعد. انتقل إلى بطاقات المسابقات واضغط «أضف إلى الخطة».</div>`}
+function togglePlan(id){state.plan=state.plan.includes(id)?state.plan.filter(x=>x!==id):[...state.plan,id];save()}
+function showPlanOnly(){document.getElementById("search").value="";renderCompetitions(true)}
+function listTable(items,columns,removeFn){if(!items.length)return '<div class="empty">لا توجد بيانات مسجلة في هذا القسم حتى الآن.</div>';return `<div class="tablewrap"><table><thead><tr>${columns.map(c=>`<th>${c[1]}</th>`).join("")}<th class="no-print">إجراء</th></tr></thead><tbody>${items.map((it,i)=>`<tr>${columns.map(c=>`<td>${esc(it[c[0]]||"—")}</td>`).join("")}<td class="no-print"><button class="btn danger small" onclick="${removeFn}(${i})">حذف</button></td></tr>`).join("")}</tbody></table></div>`}
+function renderSemester(){document.getElementById("semesterList").innerHTML=listTable(state.semester,[["title","البند"],["category","المجال"],["date","موعد التنفيذ"],["owner","المسؤول"],["notes","ملاحظات"]],"removeSemester")}
+function renderWeekly(){document.getElementById("weeklyList").innerHTML=listTable(state.weekly,[["week","الأسبوع"],["title","النشاط"],["category","المجال"],["target","الفئة"],["owner","المسؤول"],["status","الحالة"]],"removeWeekly")}
+function renderPrograms(){document.getElementById("programList").innerHTML=listTable(state.programs,[["title","البرنامج"],["category","المجال"],["date","التاريخ"],["target","الفئة"],["owner","المنفذ"],["status","الحالة"]],"removeProgram")}
+function renderReports(){let el=document.getElementById("reportList");if(!state.reports.length){el.innerHTML='<div class="empty">لم تحفظ تقارير بعد. اختر «إنشاء تقرير» لبدء إدخال تقرير جديد.</div>';return}el.innerHTML=`<div class="grid">${state.reports.map((r,i)=>`<article class="card"><div class="card-top"><span class="category">${esc(r.type)}</span><span class="muted">${esc(r.date||"بدون تاريخ")}</span></div><h3>${esc(r.title)}</h3><div class="meta"><div><b>المكان</b>${esc(r.place||"—")}</div><div><b>عدد المستفيدين</b>${esc(r.count||"—")}</div><div><b>الفئة المستهدفة</b>${esc(r.target||"—")}</div><div><b>منفذ التقرير</b>${esc(r.owner||"—")}</div></div><div class="muted">${esc((r.execution||"").slice(0,170))}${(r.execution||"").length>170?"…":""}</div><div class="actions no-print"><button class="btn primary" onclick="printReport(${i})">عرض / طباعة PDF</button><button class="btn danger" onclick="removeReport(${i})">حذف</button></div></article>`).join("")}</div>`}
+function renderStats(){document.getElementById("statCompetitions").textContent=competitions.length;document.getElementById("statPlan").textContent=state.plan.length;document.getElementById("statPrograms").textContent=state.programs.length;document.getElementById("statReports").textContent=state.reports.length}
+function renderAll(){renderCompetitions();renderPlan();renderSemester();renderWeekly();renderPrograms();renderReports();renderStats()}
+function removeSemester(i){if(confirm("هل تريد حذف هذا البند؟")){state.semester.splice(i,1);save()}}
+function removeWeekly(i){if(confirm("هل تريد حذف هذا النشاط؟")){state.weekly.splice(i,1);save()}}
+function removeProgram(i){if(confirm("هل تريد حذف هذا البرنامج؟")){state.programs.splice(i,1);save()}}
+function removeReport(i){if(confirm("هل تريد حذف هذا التقرير؟")){state.reports.splice(i,1);save()}}
+function formObject(form){return Object.fromEntries(new FormData(form).entries())}
+function wireForm(id,key,hide){document.getElementById(id).addEventListener("submit",e=>{e.preventDefault();state[key].push(formObject(e.target));e.target.reset();save();hideForm(hide)})}
+wireForm("semesterEntryForm","semester","semesterForm");wireForm("weeklyEntryForm","weekly","weeklyForm");wireForm("programEntryForm","programs","programForm");wireForm("reportEntryForm","reports","reportForm");
+document.getElementById("search").addEventListener("input",()=>renderCompetitions());document.getElementById("categoryFilter").addEventListener("change",()=>renderCompetitions());document.getElementById("statusFilter").addEventListener("change",()=>renderCompetitions());
+[...new Set(competitions.map(c=>c.category))].forEach(c=>{let o=document.createElement("option");o.value=c;o.textContent=c;document.getElementById("categoryFilter").appendChild(o)});
+function printCurrent(){window.print()}function printPlan(){document.querySelectorAll(".page").forEach(p=>p.classList.add("hidden"));document.getElementById("page-competitions").classList.remove("hidden");document.getElementById("competitionList").classList.add("hidden");window.print();setTimeout(()=>document.getElementById("competitionList").classList.remove("hidden"),500)}
+function exportData(){let blob=new Blob([JSON.stringify({state,competitions},null,2)],{type:"application/json;charset=utf-8"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="بيانات-النشاط-الطلابي.json";a.click();URL.revokeObjectURL(a.href)}
+function printReport(i){let r=state.reports[i], w=window.open("","_blank");if(!w){alert("يرجى السماح بالنوافذ المنبثقة لعرض التقرير.");return}const labels=[["goals","أهداف التنفيذ"],["execution","وصف التنفيذ والإجراءات"],["impact","الأثر والنتائج"],["recommendations","التوصيات والشواهد"]];w.document.write(`<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><title>${esc(r.title)}</title><style>body{font-family:Tahoma,Arial;max-width:900px;margin:35px auto;padding:20px;color:#24352e;line-height:1.8}h1{color:#176b59;font-size:25px}h2{font-size:16px;border-bottom:1px solid #ddd;padding-bottom:5px}.head{border:2px solid #176b59;padding:18px;border-radius:12px}.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}.item{padding:9px;background:#f5f8f7;border-radius:6px}.body{margin:20px 0;white-space:pre-wrap}.sign{display:flex;justify-content:space-between;margin-top:60px}@media print{button{display:none}}</style><div class="head"><div>النشاط الطلابي</div><h1>مدرسة مكة المكرمة الابتدائية</h1><h2>${esc(r.type)}: ${esc(r.title)}</h2></div><div class="meta">${[["تاريخ التنفيذ",r.date],["المكان",r.place],["الفئة المستهدفة",r.target],["عدد المستفيدين",r.count],["منفذ التقرير",r.owner]].map(x=>`<div class="item"><b>${x[0]}:</b> ${esc(x[1]||"—")}</div>`).join("")}</div>${labels.map(([k,l])=>`<div class="body"><h2>${l}</h2>${esc(r[k]||"—")}</div>`).join("")}<div class="sign"><div>منفذ التقرير: ${esc(r.owner||"")}</div><div>اعتماد مدير المدرسة: ${esc(r.approver||"")}<br><br>التوقيع: ______________</div></div><p style="text-align:center;color:#777;font-size:11px">نموذج قابل للتعديل حسب متطلبات المدرسة</p><script>window.onload=()=>window.print()<\/script></html>`);w.document.close()}
+renderAll();
+</script>
+</body>
+</html>

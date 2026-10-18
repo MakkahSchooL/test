@@ -18,7 +18,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);f
 button,input,select{font:inherit;color:inherit}
 .wrap{max-width:900px;margin:0 auto}
 
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:20px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
 .panel h2{margin:0 0 10px;font-size:17px;color:var(--brand)}
 .form{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .form label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
@@ -29,9 +29,9 @@ button,input,select{font:inherit;color:inherit}
 .btn.primary{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
 .hint{color:var(--muted);font-size:13.5px;margin:8px 0 0}
 
-/* execution card (Exact Ministry Template Styling with bottom footer) */
-.cardsbox{overflow:hidden;display:flex;justify-content:center}
-.card{width:210mm;height:297mm;background:#fff;color:#003845;margin:0 auto;position:relative;padding:7.7mm 10.8mm 6mm 9.8mm;font-family:"IBM Plex Sans Arabic","Sakkal Majalla",Tahoma,sans-serif;box-shadow:0 4px 20px rgba(0,40,50,.15);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}
+/* execution card */
+.cardsbox{width:100%;display:flex;justify-content:center;margin-top:20px}
+.card{width:210mm;height:297mm;background:#fff;color:#003845;position:relative;padding:7.7mm 10.8mm 6mm 9.8mm;font-family:"IBM Plex Sans Arabic","Sakkal Majalla",Tahoma,sans-serif;box-shadow:0 4px 20px rgba(0,40,50,.15);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;flex-shrink:0}
 .cd-logo{position:absolute;top:7.7mm;left:8.8mm;width:30mm;text-align:center;line-height:1.25;color:#003845}
 .cd-logo b{display:block;font-size:12pt}
 .cd-logo span{font-size:7pt;letter-spacing:.2px}
@@ -53,8 +53,6 @@ table.ct{width:100%;border-collapse:collapse;table-layout:fixed}
 .cd-sign b{display:block;font-weight:700}
 .cd-note{margin-top:2mm;padding-inline-start:4mm;font-size:9.5pt;line-height:1.5;position:relative}
 .cd-note::before{content:"•";position:absolute;inset-inline-start:0}
-
-/* Footer strip matching image */
 .cd-foot{position:absolute;bottom:0;left:0;right:0;height:6mm;background:linear-gradient(90deg,#2E8B57 0%,#20B2AA 50%,#4682B4 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:8pt;letter-spacing:1px}
 
 /* Modal styles */
@@ -140,14 +138,15 @@ try{
 }catch(e){}
 const TK=key(T),TN=dayn(T);
 
-let S={info:{iCal:""},card:{},edits:{}};
+let S={info:{iCal:"west"},card:{},edits:{}};
 try{const v=JSON.parse(localStorage.getItem("nashat-single-card-1448")||"null");if(v)S={...S,...v}}catch(e){}
+if(!S.info.iCal)S.info.iCal="west"; // افتراضي مكة وطجيها لتظهر البطاقة بشكل سلس فوراً
 const save=()=>{try{localStorage.setItem("nashat-single-card-1448",JSON.stringify(S))}catch(e){}};
 const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),1800)};
 const $=s=>document.querySelector(s);
 
 if(S.info.iCal)$("#iCal").value=S.info.iCal;
-$("#iCal").onchange=e=>{S.info.iCal=e.target.value;save()};
+$("#iCal").onchange=e=>{S.info.iCal=e.target.value;save();renderCard()};
 
 $("#iLogo").addEventListener("change",e=>{
   const f=e.target.files[0];if(!f)return;const rd=new FileReader();
@@ -210,7 +209,7 @@ const CAL={
       {n:18,exam:false,days:[{h:"1449/01/15",g:"20/6/2027",w:"الأحد"},{h:"1449/01/16",g:"21/6/2027",w:"الاثنين"},{h:"1449/01/17",g:"22/6/2027",w:"الثلاثاء"},{h:"1449/01/18",g:"23/6/2027",w:"الأربعاء"},{h:"1449/01/19",g:"24/6/2027",w:"الخميس"}]},
       {n:19,exam:true,days:[{h:"1449/01/22",g:"27/6/2027",w:"الأحد"},{h:"1449/01/23",g:"28/6/2027",w:"الاثنين"},{h:"1449/01/24",g:"29/6/2027",w:"الثلاثاء"},{h:"1449/01/25",g:"30/6/2027",w:"الأربعاء"},{h:"1449/01/26",g:"1/7/2027",w:"الخميس"}]}
     ],
-    breaks:{s1:[[12,"إجازة الخريف","1448/06/10 – 1448/06/18هـ"]],s2:[[6,"إجازة عيد الفطر","1448/09/19 – 1448/10/05هـ"],[13,"إجازة عيد الأضحى","1448/11/23 – 1448/12/16هـ"]]}
+    breaks:{s1:[[12,"إجازة الخريف","1448/06/10 – 1448/06/18هـ"]],s2:[[6,"إجازة عيد الفطر","1448/09/19 – 1448/10/05هـ"],[13,"إجازة عيد الأضحى","1448/11/23 – 1448/12/16هـ특별시"]]}
   },
   gen:{
     s1:[
@@ -403,7 +402,17 @@ function renderCard(){
   fitCard();
 }
 
-function fitCard(){const w=$("#cards").clientWidth||794;const c=$("#cards .card");if(c)c.style.zoom=Math.min(1,(w-4)/794)}
+function fitCard(){
+  const w=$(".cardsbox").clientWidth||794;
+  const c=$("#cards .card");
+  if(c){
+    const scale = Math.min(1, (w - 4) / 794);
+    c.style.transform = `scale(${scale})`;
+    c.style.transformOrigin = "top center";
+    // تعديل الهامش السفلي لتجنب الفراغ الناتج عن الـ scale
+    c.style.marginBottom = `${(scale - 1) * c.offsetHeight}px`;
+  }
+}
 window.addEventListener("resize",fitCard);
 
 $("#cards").addEventListener("click",e=>{
@@ -429,8 +438,7 @@ function busy(on,msg){let b=$("#busy");if(on){if(!b){b=document.createElement("d
 
 async function snap(node,widthPx){
   const box=document.createElement("div");box.className="shot";box.style.width=widthPx+"px";
-  const cl=node.cloneNode(true);cl.style.zoom=1;
-  cl.querySelectorAll(".noprint").forEach(e=>e.remove());
+  const cl=node.cloneNode(true);cl.style.transform="none";cl.style.marginBottom="0";
   box.appendChild(cl);document.body.appendChild(box);
   try{if(document.fonts&&document.fonts.ready)await document.fonts.ready;
     return await html2canvas(cl,{scale:2,backgroundColor:"#ffffff",useCORS:true,logging:false,windowWidth:widthPx});}
@@ -474,6 +482,7 @@ $("#cPrint").onclick=async()=>{
   }catch(e){busy(false);if(w&&!w.closed)w.close();toast("تعذّر الطباعة")}
 };
 
+// تشغيل العرض الفوري للبطاقة عند فتح الصفحة
 renderCard();
 </script>
 </body>

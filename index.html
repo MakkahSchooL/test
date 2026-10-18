@@ -2,10 +2,8 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>بطاقة تنفيذ برنامج نشاط طلابي</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -22,15 +20,15 @@ button,input,select{font:inherit;color:inherit}
 .panel h2{margin:0 0 10px;font-size:17px;color:var(--brand)}
 .form{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .form label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted)}
-.form select{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-size:14.5px}
+.form select, .form input[type="file"]{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font-size:14.5px}
 @media (max-width:600px){.form{grid-template-columns:1fr}}
 .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
 .btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 16px;cursor:pointer;font-weight:600;transition:background .15s}
 .btn.primary{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
 .hint{color:var(--muted);font-size:13.5px;margin:8px 0 0}
 
-/* execution card */
-.cardsbox{width:100%;display:flex;justify-content:center;margin-top:20px;overflow:auto}
+/* execution card container */
+.cardsbox{width:100%;display:flex;justify-content:center;margin-top:20px;overflow-x:auto}
 .card{width:210mm;min-width:210mm;height:297mm;background:#fff;color:#003845;position:relative;padding:7.7mm 10.8mm 6mm 9.8mm;font-family:"IBM Plex Sans Arabic","Sakkal Majalla",Tahoma,sans-serif;box-shadow:0 4px 20px rgba(0,40,50,.15);display:flex;flex-direction:column;justify-content:space-between}
 .cd-logo{position:absolute;top:7.7mm;left:8.8mm;width:30mm;text-align:center;line-height:1.25;color:#003845}
 .cd-logo b{display:block;font-size:12pt}
@@ -77,9 +75,6 @@ table.ct{width:100%;border-collapse:collapse;table-layout:fixed}
 .day em{font-style:normal;font-size:12px;color:var(--muted)}
 .brk{text-align:center;font-size:12.5px;color:var(--muted);background:repeating-linear-gradient(45deg,transparent 0 6px,var(--line) 6px 7px);border-radius:7px;padding:6px;margin:4px 0 10px}
 .mfoot{display:flex;gap:8px;justify-content:space-between;padding:10px 12px;border-top:1px solid var(--line)}
-.calpick{display:grid;gap:10px;padding:6px 2px}
-.calpick button{text-align:start;padding:14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer}
-.calpick b{display:block;font-size:15px}.calpick span{font-size:13px;color:var(--muted)}
 
 .toast{position:fixed;bottom:20px;inset-inline-start:50%;transform:translateX(50%);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:8px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:9}
 .toast.show{opacity:1}
@@ -126,19 +121,19 @@ const p2=n=>String(n).padStart(2,"0");
 const esc=s=>String(s?="" "").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const parse=s=>s.split("/").map(Number);
 const key=([y,m,d])=>y*10000+m*100+d;
-const dayn=([y,m,d])=>((y-1440)*12+(m-1))*29.53+d;
 
 let S={info:{iCal:"west"},card:{},edits:{}};
 try{const v=JSON.parse(localStorage.getItem("nashat-single-card-1448")||"null");if(v)S={...S,...v}}catch(e){}
 if(!S.info.iCal)S.info.iCal="west";
+
 const save=()=>{try{localStorage.setItem("nashat-single-card-1448",JSON.stringify(S))}catch(e){}};
-const toast=m=>{const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),1800)};
+const toast=m=>{const t=document.getElementById("toast");if(!t)return;t.textContent=m;t.classList.add("show");clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove("show"),1800)};
 const $=s=>document.querySelector(s);
 
-if(S.info.iCal)$("#iCal").value=S.info.iCal;
-$("#iCal").onchange=e=>{S.info.iCal=e.target.value;save();renderCard()};
+document.getElementById("iCal").value=S.info.iCal;
+document.getElementById("iCal").onchange=e=>{S.info.iCal=e.target.value;save();renderCard()};
 
-$("#iLogo").addEventListener("change",e=>{
+document.getElementById("iLogo").addEventListener("change",e=>{
   const f=e.target.files[0];if(!f)return;const rd=new FileReader();
   rd.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,320/Math.max(im.width,im.height)),cv=document.createElement("canvas");cv.width=Math.round(im.width*k);cv.height=Math.round(im.height*k);cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height);S.info.logo=cv.toDataURL("image/png");save();renderCard();toast("تم حفظ الشعار")};im.src=rd.result};
   rd.readAsDataURL(f);
@@ -262,7 +257,7 @@ function openPicker(f){
 }
 
 function drawPicker(){
-  let m=$("#dpModal");
+  let m=document.getElementById("dpModal");
   if(!m){m=document.createElement("div");m.id="dpModal";m.className="modal noprint";m.addEventListener("click",pickClick);document.body.appendChild(m)}
   const lab={start:"بداية التنفيذ",end:"نهاية التنفيذ",tDate:"تاريخ المعلم",raedDate:"تاريخ رائد النشاط"}[DP.f];
   const C=CAL[S.info.iCal],weeks=C[DP.sem],brk=C.breaks[DP.sem],cur=S.card[DP.f+"_h"];
@@ -279,7 +274,7 @@ function drawPicker(){
     <div class="mfoot"><button class="btn" data-x="clear">مسح التاريخ</button><button class="btn" data-x="close">إغلاق</button></div></div>`;
   const o=m.querySelector('.wk button[aria-expanded="true"]');if(o)o.scrollIntoView({block:"center"});
 }
-function closePicker(){const m=$("#dpModal");if(m)m.remove();DP=null}
+function closePicker(){const m=document.getElementById("dpModal");if(m)m.remove();DP=null}
 function pickClick(e){
   const t=e.target.closest("button");
   if(!t){if(e.target.id==="dpModal")closePicker();return}
@@ -310,7 +305,7 @@ function renderCard(){
   const platforms=["بنك الإثراءات","التطوير الذاتي","قيمنا الغالية","نادي القراءة"];
   const curPlat=C["platform"]||"";
 
-  $("#cards").innerHTML=`<div class="card">
+  document.getElementById("cards").innerHTML=`<div class="card">
     <div class="cd-logo">${S.info.logo?`<img src="${S.info.logo}" alt="" style="max-width:30mm;max-height:22mm">`:`<b>وزارة التعليم</b><span>Ministry of Education</span>`}</div>
     <div class="cd-title">بطاقة تنفيذ برنامج نشاط طلابي *</div>
     <table class="ct">
@@ -371,26 +366,26 @@ function renderCard(){
   </div>`;
 }
 
-$("#cards").addEventListener("click",e=>{
+document.getElementById("cards").addEventListener("click",e=>{
   const a=e.target.closest("[data-cdp]");if(a)return openPicker(a.dataset.cdp);
   const b=e.target.closest("[data-sdp]");if(b)return openPicker(b.dataset.sdp);
 });
-$("#cards").addEventListener("change",e=>{
+document.getElementById("cards").addEventListener("change",e=>{
   const r=e.target.closest("[data-radio-plat]");
   if(r){S.card.platform=r.dataset.radioPlat;save()}
 });
-$("#cards").addEventListener("input",e=>{
+document.getElementById("cards").addEventListener("input",e=>{
   const el=e.target.closest(".ce");if(!el)return;
   S.card[el.dataset.k]=el.textContent.trim();save();
 });
-$("#cReset").onclick=()=>{if(confirm("هل تريد تفريغ جميع الحقول؟")){S.card={};save();renderCard();toast("تم التفريغ")}};
+document.getElementById("cReset").onclick=()=>{if(confirm("هل تريد تفريغ جميع الحقول؟")){S.card={};save();renderCard();toast("تم التفريغ")}};
 
 const loadJS=src=>new Promise((ok,no)=>{if(document.querySelector(`script[src="${src}"]`))return ok();const s=document.createElement("script");s.src=src;s.onload=ok;s.onerror=()=>no(new Error("load"));document.head.appendChild(s)});
 async function libs(){
   await loadJS("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js");
   await loadJS("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js");
 }
-function busy(on,msg){let b=$("#busy");if(on){if(!b){b=document.createElement("div");b.id="busy";b.className="busy";document.body.appendChild(b)}b.textContent=msg||"جارٍ تجهيز الملف…"}else if(b)b.remove()}
+function busy(on,msg){let b=document.getElementById("busy");if(on){if(!b){b=document.createElement("div");b.id="busy";b.className="busy";document.body.appendChild(b)}b.textContent=msg||"جارٍ تجهيز الملف…"}else if(b)b.remove()}
 
 async function snap(node,widthPx){
   const box=document.createElement("div");box.className="shot";box.style.width=widthPx+"px";
@@ -400,11 +395,11 @@ async function snap(node,widthPx){
   finally{box.remove()}
 }
 
-$("#pdfCard").onclick=async()=>{
+document.getElementById("pdfCard").onclick=async()=>{
   busy(true,"جارٍ تجهيز البطاقة PDF…");
   try{
     await libs();
-    const cv=await snap($("#cards .card"),794);
+    const cv=await snap(document.querySelector("#cards .card"),794);
     const {jsPDF}=window.jspdf,pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4"});
     pdf.addImage(cv.toDataURL("image/jpeg",.92),"JPEG",0,0,210,297);
     const blob=pdf.output("blob");
@@ -415,14 +410,14 @@ $("#pdfCard").onclick=async()=>{
   finally{busy(false)}
 };
 
-$("#cPrint").onclick=async()=>{
+document.getElementById("cPrint").onclick=async()=>{
   const isIOS=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
   let w=null;
   if(!isIOS){try{w=window.open("","_blank")}catch(e){}}
   busy(true,"جارٍ تجهيز البطاقة للطباعة…");
   try{
     await libs();
-    const cv=await snap($("#cards .card"),794);
+    const cv=await snap(document.querySelector("#cards .card"),794);
     const {jsPDF}=window.jspdf,pdf=new jsPDF({orientation:"portrait",unit:"mm",format:"a4"});
     pdf.addImage(cv.toDataURL("image/jpeg",.92),"JPEG",0,0,210,297);
     busy(false);
@@ -437,7 +432,7 @@ $("#cPrint").onclick=async()=>{
   }catch(e){busy(false);if(w&&!w.closed)w.close();toast("تعذّر الطباعة")}
 };
 
-// تشغيل عرض البطاقة فوراً عند تحميل الصفحة
+// تشغيل البطاقة فوراً عند التحميل
 renderCard();
 </script>
 </body>
